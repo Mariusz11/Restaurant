@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th>Ilość</th>
+            <th>Nazwa</th>
+            <th>Cena</th>
+            <th>klient</th>
+            <th>Usuń</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.productQuantity }}</td>
+                <td>{{ order.product.name }}</td>
+                <td>{{ order.product.price }}</td>
+                <td>{{ order.customer.name }}</td>
+                <td><a href="{{ path('orders_delete', {'id' : order.id}) }}">Usuń</a></td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

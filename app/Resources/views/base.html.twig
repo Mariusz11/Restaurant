@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous">
+    </head>
+    <body>
+    <ul>
+        <li>Admin
+            <ul>
+                <li><a href="{{ path('admin_index') }}">Pokaż wszystkie produkty</a></li>
+                <li><a href="{{ path('new_product') }}">Nowy produkt</a></li>
+                <li><a href="{{ path('orders_index') }}">Zamówienia</a></li>
+            </ul>
+        </li>
+        <li>Pracownik
+            <ul>
+                <li><a href="{{ path('orders_index') }}">Zamówienia</a></li>
+            </ul>
+        </li>
+        <li>Klient
+            <ul>
+                <li><a href="{{ path('client_index') }}">Pokaż wszystkie produkty</a></li>
+                <li><a href="{{ path('order_client') }}">Moje zamówienie</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="container">{% block body %}{% endblock %}</div>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

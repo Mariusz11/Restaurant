@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ul>
+        <li>Pokaż wszystkie produkty</li>
+        <li>Dodaj nowy produkt</li>
+        <li>Zamówienia</li>
+    </ul>
+
+    <h3>Nowy produkt</h3>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Dodaj" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

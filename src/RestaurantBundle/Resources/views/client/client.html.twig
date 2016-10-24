@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Product list</h1>
+
+    <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Cena</th>
+            <th>Opis</th>
+            <th>Kcal</th>
+            <th>kategoria</th>
+            <th>Zdjęcie</th>
+            <th>Dodaj</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.kCal }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.photo }}</td>
+                <td>
+                    <form method="post">
+                        ilość: <input type="number" name="quantity" value="1">
+                        klient: <input type="number" name="customer">
+                        <input type="hidden" value='{{ product.id }}' name="product">
+                        <input type="submit" value="Dodaj">
+
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
